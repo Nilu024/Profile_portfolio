@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code, Database, Globe, Smartphone } from 'lucide-react';
+import './App.css';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('about');

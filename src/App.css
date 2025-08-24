@@ -1,0 +1,329 @@
+/* Mobile and Tablet Responsive CSS for Portfolio */
+
+/* Tablet View (768px to 1024px) */
+@media (max-width: 1024px) {
+  /* Navigation adjustments */
+  nav > div {
+    padding: 0 1.5rem !important;
+  }
+  
+  nav > div > div {
+    gap: 1.5rem !important;
+  }
+  
+  nav button {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Hero section */
+  #about > div {
+    padding: 0 1.5rem !important;
+  }
+  
+  #about h1 {
+    font-size: 3rem !important;
+  }
+  
+  #about p {
+    font-size: 1.2rem !important;
+  }
+  
+  /* Skills and Projects sections */
+  #skills > div,
+  #projects > div,
+  #interests > div {
+    padding: 0 1.5rem !important;
+  }
+  
+  /* Project grid */
+  #projects > div > div:last-child {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  }
+  
+  /* Contact section */
+  #contact > div {
+    padding: 0 1.5rem !important;
+  }
+}
+
+/* Mobile View (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Navigation for mobile */
+  nav > div {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  nav > div > h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  nav > div > div {
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  nav button {
+    font-size: 0.85rem !important;
+    padding: 0.3rem 0 !important;
+  }
+  
+  /* Hero section mobile */
+  #about {
+    min-height: 90vh !important;
+  }
+  
+  #about > div {
+    padding: 0 1rem !important;
+  }
+  
+  #about > div > div:first-child {
+    width: 120px !important;
+    height: 120px !important;
+    font-size: 3rem !important;
+  }
+  
+  #about h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  #about p {
+    font-size: 1.1rem !important;
+    margin: 0 auto 1.5rem !important;
+  }
+  
+  #about > div > div:last-child {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+  }
+  
+  #about a {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Skills section mobile */
+  #skills,
+  #projects,
+  #interests {
+    padding: 4rem 0 !important;
+  }
+  
+  #skills > div,
+  #projects > div,
+  #interests > div {
+    padding: 0 1rem !important;
+  }
+  
+  #skills h2,
+  #projects h2,
+  #interests h2 {
+    font-size: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Skills grid mobile */
+  #skills > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  #skills > div > div:last-child > div {
+    padding: 1.5rem !important;
+  }
+  
+  /* Projects grid mobile */
+  #projects > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  #projects > div > div:last-child > div {
+    margin: 0 auto !important;
+    max-width: 400px !important;
+  }
+  
+  #projects img {
+    height: 180px !important;
+  }
+  
+  #projects > div > div:last-child > div > div {
+    padding: 1.2rem !important;
+  }
+  
+  #projects h3 {
+    font-size: 1.2rem !important;
+  }
+  
+  #projects p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Interests grid mobile */
+  #interests > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  #interests > div > div:last-child > div {
+    padding: 1.5rem !important;
+  }
+  
+  /* Contact section mobile */
+  #contact {
+    padding: 4rem 0 !important;
+  }
+  
+  #contact > div {
+    padding: 0 1rem !important;
+  }
+  
+  #contact h2 {
+    font-size: 2rem !important;
+  }
+  
+  #contact p {
+    font-size: 1.1rem !important;
+  }
+  
+  #contact > div > div:nth-child(3) {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+  
+  #contact a,
+  #contact > div > div:nth-child(3) > div {
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+  
+  #contact > div > div:last-child {
+    margin-top: 2rem !important;
+  }
+  
+  /* Footer mobile */
+  footer > div {
+    padding: 0 1rem !important;
+  }
+  
+  footer p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* Small Mobile View (max-width: 480px) */
+@media (max-width: 480px) {
+  /* Extra small navigation */
+  nav > div > div {
+    gap: 0.5rem !important;
+  }
+  
+  nav button {
+    font-size: 0.8rem !important;
+    padding: 0.2rem 0 !important;
+  }
+  
+  /* Hero section extra small */
+  #about h1 {
+    font-size: 2rem !important;
+  }
+  
+  #about p {
+    font-size: 1rem !important;
+  }
+  
+  #about > div > div:first-child {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 2.5rem !important;
+  }
+  
+  /* Section headings */
+  #skills h2,
+  #projects h2,
+  #interests h2,
+  #contact h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  /* Skills cards */
+  #skills > div > div:last-child > div {
+    padding: 1.2rem !important;
+  }
+  
+  /* Projects */
+  #projects > div > div:last-child > div {
+    max-width: 100% !important;
+  }
+  
+  #projects img {
+    height: 160px !important;
+  }
+  
+  #projects > div > div:last-child > div > div {
+    padding: 1rem !important;
+  }
+  
+  /* Contact links stack vertically */
+  #contact > div > div:nth-child(3) {
+    gap: 0.8rem !important;
+  }
+  
+  #contact a,
+  #contact > div > div:nth-child(3) > div {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Hover effects for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  nav button:hover {
+    color: inherit !important;
+  }
+  
+  /* Add touch-friendly focus states instead */
+  nav button:focus,
+  nav button:active {
+    color: #667eea !important;
+    outline: none !important;
+  }
+  
+  #contact a:focus,
+  #contact a:active {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* Utility classes for better mobile experience */
+@media (max-width: 768px) {
+  /* Ensure text is readable on mobile */
+  * {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+  
+  /* Improve touch targets */
+  button,
+  a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth !important;
+  }
+}
