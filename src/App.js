@@ -50,7 +50,6 @@ export default function Portfolio() {
   const interests = [
     { name: 'Web Performance', icon: <Globe size={24} />, description: 'Optimizing web applications for speed and accessibility' },
     { name: 'Open Source', icon: <Code size={24} />, description: 'Contributing to open source projects and community development' },
-    { name: 'Machine Learning', icon: <Database size={24} />, description: 'Exploring AI/ML applications in web development' },
     { name: 'Mobile Development', icon: <Smartphone size={24} />, description: 'Building cross-platform mobile applications' }
   ];
 
