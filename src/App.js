@@ -50,19 +50,19 @@ export default function Portfolio() {
 
   const skills = {
     'Frontend': {
-      skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'TypeScript'],
+      skills: ['React', 'JavaScript', 'HTML5', 'CSS3'],
       icon: <Monitor size={24} />
     },
     'Backend': {
-      skills: ['Node.js', 'Express', 'Java', 'Python'],
+      skills: ['Node.js', 'Express', 'Java'],
       icon: <Server size={24} />
     },
     'Database': {
-      skills: ['MongoDB', 'MySQL', 'PostgreSQL'],
+      skills: ['MongoDB', 'MySQL'],
       icon: <Database size={24} />
     },
     'Tools & Design': {
-      skills: ['Git', 'GitHub', 'Figma', 'Adobe XD'],
+      skills: ['Git', 'GitHub', 'Version Control'],
       icon: <Palette size={24} />
     }
   };
