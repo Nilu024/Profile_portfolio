@@ -1,34 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Github, Linkedin, Mail, Phone, MapPin, ExternalLink, 
-  Code, Database, Globe, Smartphone, Monitor, Server,
-  Palette, Layers, Menu, X
-} from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Code,
+  Database,
+  Globe,
+  Smartphone,
+  Monitor,
+  Server,
+  Palette,
+  Layers,
+  Menu,
+  X,
+} from "lucide-react";
+import CommonHeader from "./header/CommonHeader";
+import HeroSection from "./components/HeroSection";
+import TechnicalExpertise from "./components/TechnicalExpertise";
+import FeaturedProjects from "./components/FeaturedProjects";
+import Interests from "./components/Interests";
+import Contact from "./components/Contact";
 
 export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState('about');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [animatedSections, setAnimatedSections] = useState(new Set());
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Intersection Observer for scroll animations
-      const sections = document.querySelectorAll('.section, .skill-card, .project-card, .interest-card');
+      const sections = document.querySelectorAll(
+        ".section, .skill-card, .project-card, .interest-card"
+      );
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
-        
-        if (isVisible && !section.classList.contains('animate')) {
-          section.classList.add('animate');
+        const isVisible =
+          rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+
+        if (isVisible && !section.classList.contains("animate")) {
+          section.classList.add("animate");
         }
       });
 
       // Update active section based on scroll position
-      const sections2 = ['about', 'skills', 'projects', 'interests', 'contact'];
-      const currentSection = sections2.find(section => {
+      const sections2 = ["about", "skills", "projects", "interests", "contact"];
+      const currentSection = sections2.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -36,263 +56,43 @@ export default function Portfolio() {
         }
         return false;
       });
-      
+
       if (currentSection) {
         setActiveSection(currentSection);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial call
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const skills = {
-    'Frontend': {
-      skills: ['React', 'JavaScript', 'HTML5', 'CSS3'],
-      icon: <Monitor size={24} />
-    },
-    'Backend': {
-      skills: ['Node.js', 'Express', 'Java'],
-      icon: <Server size={24} />
-    },
-    'Database': {
-      skills: ['MongoDB', 'MySQL'],
-      icon: <Database size={24} />
-    },
-    'Tools & Design': {
-      skills: ['Git', 'GitHub', 'Version Control'],
-      icon: <Palette size={24} />
-    }
-  };
-
-  const projects = [
-    {
-      title: 'Netflix Clone',
-      description: 'A responsive Netflix clone featuring user authentication, video streaming capabilities, and personalized recommendations with modern UI/UX design.',
-      tech: ['React', 'CSS3', 'JavaScript', 'API Integration'],
-      github: 'https://github.com/Nilu024/netflix-clone',
-      demo: 'https://netflix-clone-phi-lake.vercel.app/',
-      image: '/images/netflix.png'
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, drag-and-drop functionality, team collaboration features, and progress tracking.',
-      tech: ['React', 'Node.js', 'Bootstrap', 'Socket.io'],
-      github: 'https://github.com/yourusername/taskmanager',
-      demo: 'https://demo-taskmanager.com',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop'
-    },
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React frontend and Node.js backend. Features include user authentication, payment integration, inventory management, and comprehensive admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'JWT'],
-      github: 'https://github.com/yourusername/ecommerce',
-      demo: 'https://demo-ecommerce.com',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop'
-    }
-  ];
-
-  const interests = [
-    { 
-      name: 'Web Performance', 
-      icon: <Globe size={28} />, 
-      description: 'Passionate about optimizing web applications for speed, accessibility, and superior user experience across all devices and platforms.' 
-    },
-    { 
-      name: 'Open Source', 
-      icon: <Code size={28} />, 
-      description: 'Actively contributing to open source projects and engaging with the developer community to create innovative solutions.' 
-    },
-    { 
-      name: 'UI/UX Design', 
-      icon: <Layers size={28} />, 
-      description: 'Creating intuitive and visually appealing user interfaces that provide seamless user experiences and drive engagement.' 
-    }
-  ];
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-      setMobileMenuOpen(false);
-    }
-  };
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   return (
     <div style={{ margin: 0, padding: 0 }}>
       {/* Navigation */}
-      <nav className={`nav-container ${isScrolled ? 'nav-scrolled' : ''}`}>
-        <div className="nav-content">
-          <h2 className="logo">Nilesh Desale</h2>
-          
-          <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-          </button>
-
-          <div className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
-            {['about', 'skills', 'projects', 'interests', 'contact'].map(section => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`nav-item ${activeSection === section ? 'active' : ''}`}
-              >
-                {section}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
+      <CommonHeader />
       {/* Hero Section */}
-      <section id="about" className="hero-section">
-        <div className="hero-content">
-          <div className="profile-image">
-            <img src="/images/crop.jpg" alt="Nilesh Desale" />
-          </div>
-          <h1 className="hero-title">MERN Stack Developer</h1>
-          <p className="hero-subtitle">
-            Passionate about creating exceptional digital experiences with modern web technologies. 
-            I build scalable, user-friendly applications that make a meaningful impact and drive innovation.
-          </p>
-          <a href="mailto:nileshdesale24@gmail.com" className="cta-button">
-            <Mail size={20} />
-            Let's Collaborate
-          </a>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Skills Section */}
-      <section id="skills" className="section section-alt">
-        <div className="container">
-          <h2 className="section-title">Technical Expertise</h2>
-          <div className="skills-grid">
-            {Object.entries(skills).map(([category, data]) => (
-              <div key={category} className="skill-card">
-                <h3 className="skill-category">
-                  {data.icon}
-                  {category}
-                </h3>
-                <div className="skill-tags">
-                  {data.skills.map(skill => (
-                    <span key={skill} className="skill-tag">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TechnicalExpertise />
 
       {/* Projects Section */}
-      <section id="projects" className="section">
-        <div className="container">
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div key={index} className="project-card">
-                <img src={project.image} alt={project.title} className="project-image" />
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tech">
-                    {project.tech.map(tech => (
-                      <span key={tech} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
-                      <Github size={16} />
-                      Code
-                    </a>
-                    <a href={project.demo} className="project-link" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={16} />
-                      Demo
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FeaturedProjects />
 
       {/* Interests Section */}
-      <section id="interests" className="section section-alt">
-        <div className="container">
-          <h2 className="section-title">Interests & Continuous Learning</h2>
-          <div className="interests-grid">
-            {interests.map((interest, index) => (
-              <div key={index} className="interest-card">
-                <div className="interest-icon">
-                  {interest.icon}
-                </div>
-                <h3 className="interest-title">{interest.name}</h3>
-                <p className="interest-description">{interest.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Interests />
 
       {/* Contact Section */}
-      <section id="contact" className="section section-gradient">
-        <div className="container">
-          <h2 className="section-title">Let's Work Together</h2>
-          <p style={{
-            fontSize: '1.2rem',
-            marginBottom: '3rem',
-            opacity: 0.9,
-            textAlign: 'center',
-            maxWidth: '600px',
-            margin: '0 auto 3rem'
-          }}>
-            I'm always interested in new opportunities and exciting projects. 
-            Let's discuss how we can bring your ideas to life and create something amazing together.
-          </p>
-          <div className="contact-info">
-            <a href="mailto:nileshdesale24@gmail.com" className="contact-item">
-              <Mail size={20} />
-              nileshdesale24@gmail.com
-            </a>
-            <a href="tel:+919699951857" className="contact-item">
-              <Phone size={20} />
-              +91 9699951857
-            </a>
-            <div className="contact-item">
-              <MapPin size={20} />
-              Hadapsar, Pune
-            </div>
-          </div>
-          <div className="social-links">
-            <a href="https://github.com/Nilu024/" className="social-link" target="_blank" rel="noopener noreferrer">
-              <Github size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/nilesh-desale-a79872282/" className="social-link" target="_blank" rel="noopener noreferrer">
-              <Linkedin size={24} />
-            </a>
-          </div>
-        </div>
-      </section>
+      <Contact />
 
       {/* Footer */}
       <footer className="footer">
         <div className="container">
           <p className="footer-content">
-            © 2025 Nilesh Desale. Crafted with React and passion for exceptional user experiences.
+            © 2025 Nilesh Desale. Crafted with React and passion for exceptional
+            user experiences.
           </p>
         </div>
       </footer>
@@ -307,7 +107,8 @@ export default function Portfolio() {
         }
 
         body {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+            Roboto, sans-serif;
           line-height: 1.6;
           color: #333;
           overflow-x: hidden;
@@ -395,7 +196,7 @@ export default function Portfolio() {
         }
 
         .nav-item::after {
-          content: '';
+          content: "";
           position: absolute;
           width: 0;
           height: 2px;
@@ -441,20 +242,31 @@ export default function Portfolio() {
         }
 
         .hero-section::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+          background: radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0) 70%
+          );
           animation: float 20s ease-in-out infinite;
         }
 
         @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          33% { transform: translateY(-20px) rotate(5deg); }
-          66% { transform: translateY(-10px) rotate(-5deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          33% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+          66% {
+            transform: translateY(-10px) rotate(-5deg);
+          }
         }
 
         .hero-content {
@@ -477,8 +289,13 @@ export default function Portfolio() {
         }
 
         @keyframes profileFloat {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
         }
 
         .profile-image:hover {
@@ -584,7 +401,7 @@ export default function Portfolio() {
         }
 
         .section-title::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: -10px;
           left: 50%;
